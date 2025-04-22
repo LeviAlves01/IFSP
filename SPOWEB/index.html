@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Validação de Número</title>
 </head>
 <body>
     <div class="container">
         <div class="blocoprincipal">
-            <h1>Validação de números</h1>
-            <label for="numero"><input type="text" placeholder="Digite um número aqui..."></label><br>
-            <br><div class="botao"><button type="submit">Validar</button></div>
+            <h2>Validação de números</h2>
+            <div class="formulario">
+                <label for="numero"><input type="text" placeholder="Digite um número aqui..."></label>
+                <a href="" id="validar" target="_self" 
+                onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform=''" 
+                onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='none'" onclick="validarNumero()">Validar</a>
+
+                <p id="mensagem"></p>
+            </div>
         </div>
     </div>
+
+    <script src="primeiro.js"></script>
 </body>
 </html>
