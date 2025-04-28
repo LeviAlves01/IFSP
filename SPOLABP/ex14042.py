@@ -42,4 +42,5 @@ funcionario(nome, salario_base)
 
 if (funcao=="gerente"):
     bonus = float(input("Digite seu bônus: R$"))
-    gerente.calcular_salario(nome, salario_base, bonus)
+    gerente = gerente(nome, salariobase, bonus)
+    gerente.calcular_salario()
