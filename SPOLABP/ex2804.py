@@ -19,7 +19,7 @@ class Produto:
         return self.__quantidade
     
     def get_preco(self):
-        return self.__preco
+        return self.preco
     
 tenis = Produto("Tenis", 50, 1)
 anel = Produto("Anel", 10, 2)
