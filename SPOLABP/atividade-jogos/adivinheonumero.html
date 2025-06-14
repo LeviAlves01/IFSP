@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adivinhe o Número | Trench</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-black text-[#fdfc00] min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4 border-b border-[#fdfc00]">
+    <div class="flex items-center space-x-3">
+      <img src="img/twenty one pilots.jpeg" alt="Logo" class="w-10 h-10 rounded-full">
+      <h1 class="text-2xl font-semibold">Trench</h1>
+    </div>
+    <a href="index.html" class="text-[#fdfc00] border border-[#fdfc00] px-4 py-2 rounded hover:bg-[#fdfc00] hover:text-black transition">Voltar</a>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-grow flex flex-col items-center justify-center px-6 text-center mt-12 mb-20">
+    
+    <h2 class="text-4xl font-bold mb-4">Adivinhe o Número</h2>
+
+    <h3 class="text-2xl font-semibold mb-4">Como Jogar</h3>
+    <p class="max-w-xl text-lg mb-10">
+      Tente adivinhar o número que o computador escolheu dentro do intervalo. Você terá dicas para se aproximar da resposta correta.
+    </p>
+
+    <!-- IFRAME DO JOGO FLASK -->
+    <div class="w-full max-w-4xl aspect-[16/9] border-4 border-[#fdfc00] rounded overflow-hidden shadow-lg">
+      <iframe src="/adivinhe-numero" class="w-full h-full" frameborder="0"></iframe>
+    </div>
+
+    <p class="mt-8 text-sm text-gray-400">* O jogo está sendo carregado via Flask na rota <code>/adivinhe-numero</code>.</p>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="text-center py-4 border-t border-[#fdfc00]">
+    <p>&copy; Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

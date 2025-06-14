@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trench</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-black text-[#fdfc00] min-h-[120vh] flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4 border-b border-[#fdfc00]">
+    <div class="flex items-center space-x-3">
+      <img src="img/twenty one pilots.jpeg" alt="Logo" class="w-10 h-10 rounded-full">
+      <h1 class="text-2xl font-semibold">Trench</h1>
+    </div>
+    <input 
+      type="text" 
+      placeholder="Pesquisar..." 
+      class="bg-black border border-[#fdfc00] text-[#fdfc00] px-4 py-2 rounded focus:outline-none"
+    >
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-grow flex items-center justify-center mt-10 mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center px-6">
+
+      <a href="https://exemplo.com/jogo1" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/torre de hanoi.png" alt="Jogo 1" class="w-full h-48 object-cover">
+        <div class="p-4">Torre de Hanói</div>
+      </a>
+
+      <a href="https://exemplo.com/jogo2" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/jogodaforca.png" alt="Jogo 2" class="w-full h-48 object-cover">
+        <div class="p-4">Jogo da Forca</div>
+      </a>
+
+      <a href="https://exemplo.com/jogo3" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/quiz.png" alt="Jogo 3" class="w-full h-48 object-cover">
+        <div class="p-4">Quiz Dinâmico</div>
+      </a>
+
+      <a href="https://exemplo.com/jogo4" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/pedrapapeltesoura.png" alt="Jogo 4" class="w-full h-48 object-cover">
+        <div class="p-4">Pedra, Papel e Tesoura</div>
+      </a>
+
+      <a href="https://exemplo.com/jogo5" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/batalhanaval.png" alt="Jogo 5" class="w-full h-48 object-cover">
+        <div class="p-4">Batalha Naval</div>
+      </a>
+
+      <a href="https://exemplo.com/jogo6" class="bg-[#fdfc00] text-black font-semibold rounded shadow-lg hover:scale-105 transition-transform overflow-hidden">
+        <img src="img/adivinheonumero.png" alt="Jogo 6" class="w-full h-48 object-cover">
+        <div class="p-4">Adivinhe o Número</div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="text-center py-4 border-t border-[#fdfc00]">
+    <p>&copy; Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
