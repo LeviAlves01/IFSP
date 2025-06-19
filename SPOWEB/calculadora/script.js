@@ -11,7 +11,7 @@ const Menu = function(){
         "3 - Multiplicar\n" +
         "4 - Dividir\n" +
         "5 - Sair"
-    )
+    );
 }
 
 const Saida = function(){
@@ -27,19 +27,19 @@ let verificarvalores = function(){
 }
 
 const soma = (a, b) =>{
-    return a+b;
+    return a + b;
 }
 
-const subtracao = (a,b) =>{
-    return a-b;
+const subtracao = (a, b) =>{
+    return a - b;
 }
 
 const multiplicacao = (a, b) => {
-    return a*b;
+    return a * b;
 }
 
 const divisao = (a, b) => {
-    return a/b;
+    return a / b;
 }
 
 while (opcao != "5"){
