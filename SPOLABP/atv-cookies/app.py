@@ -2,10 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 
 app = Flask(__name__)
 
-
-app.secret_key = 142
-contador = int
-bemvindo = False
 usuario_cadastrado = "ana"
 senha_cadastrada = "123"
 
@@ -31,17 +27,17 @@ def login():
 @app.route('/bemvindo', methods=['GET', 'POST'])
 def bemvindo():
     
-    if 'Contador' in session:
-        session['Contador'] +=1
+    if 'counter' in session:
+        session['counter'] += 1
     else:
-        session['Contador'] = 1
+        session['counter'] = 1
 
     username = request.cookies.get('username')
 
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('bemvindo.html', user=username, cont = str(session['Contador']))
+    return render_template('index.html', user=username, counter=str(session['counter']))
 
 @app.route('/logout')
 def logout():
@@ -97,5 +93,3 @@ def lazer():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
