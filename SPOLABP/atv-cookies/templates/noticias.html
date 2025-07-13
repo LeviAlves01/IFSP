@@ -178,7 +178,7 @@
 <body class="{% if tema == 'dark' %}dark-theme{% endif %}">
     <header class="{% if tema == 'dark' %}dark-theme{% endif %}">
         <div class="logo">
-            <img src="https://placehold.co/150x50" alt="Logo do Portal de Notícias em azul com nome NewsHub" />
+            <img src="{{ url_for('static', filename='img/logo.png')}}" alt="Logo do Portal de Notícias em azul com nome NewsHub" />
         </div>
         <nav>
             <ul>
@@ -202,7 +202,7 @@
        <div class="categories-grid">
             <div class="category-card {% if ultima_categoria == 'esportes' %}active-category{% endif %}">
                 <div class="category-image">
-                <img src="https://placehold.co/600x400" alt="Estádio de futebol">
+                <img src="{{ url_for('static', filename='img/capaesporte.avif')}}" alt="Estádio de futebol">
             </div>
         <div class="category-content">
             <h2 class="category-title">Esportes</h2>
@@ -213,7 +213,7 @@
     
     <div class="category-card {% if ultima_categoria == 'entretenimento' %}active-category{% endif %}">
         <div class="category-image">
-            <img src="https://placehold.co/600x400" alt="Cinema">
+            <img src="{{ url_for('static', filename='img/capaentrete.jpg') }}" alt="Cinema">
         </div>
         <div class="category-content">
             <h2 class="category-title">Entretenimento</h2>
@@ -224,7 +224,7 @@
     
     <div class="category-card {% if ultima_categoria == 'lazer' %}active-category{% endif %}">
         <div class="category-image">
-            <img src="https://placehold.co/600x400" alt="Lazer">
+            <img src="{{ url_for('static', filename='img/capalazer.webp')}}" alt="Lazer">
         </div>
         <div class="category-content">
             <h2 class="category-title">Lazer</h2>

@@ -154,7 +154,7 @@
 <body class="{% if tema == 'dark' %}dark-theme{% endif %}">
     <header>
         <div class="logo">
-            <img src="https://placehold.co/150x50" alt="Logo do Portal de Notícias em azul com nome NewsHub" />
+            <img src="{{ url_for('static', filename='img/logo.png')}}" alt="Logo do Portal de Notícias em azul com nome NewsHub" />
         </div>
         <nav>
             <ul>
@@ -178,7 +178,7 @@
         <div class="news-grid">
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400" alt="Praia paradisíaca com águas cristalinas e coqueiros ao redor, ideal para férias relaxantes" />
+                    <img src="{{ url_for('static', filename='img/lnot1.jpg')}}" alt="Praia paradisíaca com águas cristalinas e coqueiros ao redor, ideal para férias relaxantes" />
                 </div>
                 <div class="news-content">
                     <h2 class="news-title">Os 5 destinos nacionais mais procurados para as férias</h2>
@@ -193,7 +193,7 @@
             
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400" alt="Restaurante com mesas elegantes e iluminação aconchegante, pronto para receber clientes" />
+                    <img src="{{ url_for('static', filename='img/lnot2.jpg')}}" alt="Restaurante com mesas elegantes e iluminação aconchegante, pronto para receber clientes" />
                 </div>
                 <div class="news-content">
                     <h2 class="news-title">Novo restaurante promete experiência gastronômica única</h2>
@@ -208,7 +208,7 @@
             
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400" alt="Exposição de arte moderna com visitantes apreciando as obras em galeria bem iluminada" />
+                    <img src="{{ url_for('static', filename='img/lnot3.png')}}" alt="Exposição de arte moderna com visitantes apreciando as obras em galeria bem iluminada" />
                 </div>
                 <div class="news-content">
                     <h2 class="news-title">Mostra cultural reúne artistas locais em evento gratuito</h2>

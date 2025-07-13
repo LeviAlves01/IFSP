@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 
 app = Flask(__name__)
 
-usuario_cadastrado = "ana"
+usuario_cadastrado = "levi"
 senha_cadastrada = "123"
 
 @app.route('/', methods=['GET', 'POST'])
@@ -58,7 +58,7 @@ def logout():
 def noticias():
     username = request.cookies.get('username')
     tema = request.cookies.get('tema', 'light')
-    ultima_categoria = request.cookies.get('ultima_categoria', 'esportes')  # Pega a última categoria
+    ultima_categoria = request.cookies.get('ultima_categoria', 'esportes')
     
     if not username:
         return redirect(url_for('login'))
@@ -112,7 +112,7 @@ def lazer():
     if not username:
         return redirect(url_for('login'))
     
-    resposta = make_response(render_template('esportes.html', user=username, tema=tema))
+    resposta = make_response(render_template('lazer.html', user=username, tema=tema))
     resposta.set_cookie('ultima_categoria', 'lazer', max_age=60*60*24)
     return resposta
 
