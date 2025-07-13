@@ -15,9 +15,8 @@ def login():
         senha = request.form['password']
         
         if usuario == usuario_cadastrado and senha == senha_cadastrada:
-            resposta = make_response(redirect(url_for('bemvindo')))
+            resposta = make_response(redirect(url_for(request.cookies.get('redirect_depois_login', 'bemvindo'))))
             resposta.set_cookie('username', usuario, max_age=60*10)
-
             return resposta
         else:
             mensagem = "Usuário ou senha inválidos. Tente novamente."
@@ -26,70 +25,107 @@ def login():
 
 @app.route('/bemvindo', methods=['GET', 'POST'])
 def bemvindo():
-    
-    if 'counter' in session:
-        session['counter'] += 1
-    else:
-        session['counter'] = 1
-
     username = request.cookies.get('username')
+    tema = request.cookies.get('tema', 'light')
 
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('index.html', user=username, counter=str(session['counter']))
+    visitas = int(request.cookies.get('visitas', 0)) + 1
+    resposta = make_response(render_template(
+        'bemvindo.html',
+        user=username,
+        visitas=visitas,
+        tema=request.cookies.get('tema', 'light')
+    ))
+    resposta.set_cookie('visitas', str(visitas), max_age=60*30)
+    return resposta
 
 @app.route('/logout')
 def logout():
     resposta = make_response(redirect(url_for('login')))
+    ultima_categoria = request.cookies.get('ultima_categoria', 'noticias')
+
+    if not ultima_categoria:
+        ultima_categoria = url_for('noticias')
 
     resposta.set_cookie('username', '', expires=0)
-
+    resposta.set_cookie('redirect_depois_login', ultima_categoria, max_age=60*5)
+    resposta.set_cookie('visitas', '', expires=0)
     return resposta
 
 @app.route('/noticias')
 def noticias():
-    global bemvindo
-    bemvindo = False
     username = request.cookies.get('username')
-
+    tema = request.cookies.get('tema', 'light')
+    ultima_categoria = request.cookies.get('ultima_categoria', 'esportes')  # Pega a última categoria
+    
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('noticias.html', user=username)
+    resposta = make_response(render_template(
+        'noticias.html',
+        user=username,
+        tema=tema,
+        ultima_categoria=ultima_categoria 
+    ))
+    return resposta
+
+
+@app.route('/categorias')
+def categorias():
+    username = request.cookies.get('username')
+    if not username:
+        return redirect(url_for('login'))
+    
+    return render_template('noticias.html', user=username, tema=request.cookies.get('tema', 'light'))
 
 @app.route('/esportes')
 def esportes():
-    global bemvindo
-    bemvindo = False
     username = request.cookies.get('username')
+    tema = request.cookies.get('tema', 'light')
 
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('esportes.html', user=username)
+    resposta = make_response(render_template('esportes.html', user=username, tema=tema))
+    resposta.set_cookie('ultima_categoria', 'esportes', max_age=60*60*24)
+    return resposta
 
 @app.route('/entretenimento')
-def entertainment():
-    global bemvindo
-    bemvindo = False
+def entretenimento():
     username = request.cookies.get('username')
+    tema = request.cookies.get('tema', 'light')
 
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('entretenimento.html', user=username)
+    resposta = make_response(render_template('entretenimento.html', user=username, tema=tema))
+    resposta.set_cookie('ultima_categoria', 'entretenimento', max_age=60*60*24)
+    return resposta
 
 @app.route('/lazer')
 def lazer():
-    global bemvindo
-    bemvindo = False
     username = request.cookies.get('username')
+    tema = request.cookies.get('tema', 'light')
 
     if not username:
         return redirect(url_for('login'))
     
-    return render_template('lazer.html', user=username)
+    resposta = make_response(render_template('esportes.html', user=username, tema=tema))
+    resposta.set_cookie('ultima_categoria', 'lazer', max_age=60*60*24)
+    return resposta
+
+@app.route('/mudartema', methods=['POST'])
+def mudartema():
+    pagina_anterior = request.referrer or url_for('bemvindo')
+    resposta = make_response(redirect(pagina_anterior))
+    
+    tema_atual = request.cookies.get('tema', 'light')
+    novo_tema = 'dark' if tema_atual == 'light' else 'light'
+    resposta.set_cookie('tema', novo_tema, max_age=30*60)
+    
+    return resposta
 
 if __name__ == '__main__':
     app.run(debug=True)
