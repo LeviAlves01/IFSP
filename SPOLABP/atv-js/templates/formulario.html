@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 
 <body>
@@ -14,10 +13,16 @@
             <label for="name">Nome:</label><input type="text" id="username" name="username"><br>
             <label for="email">E-mail:</label><input type="email" id="email" name="email"><br>
             <label for="password">Senha:</label><input type="password" id="password" name="password"><br>
-            <p id="mensagem"></p><br>
-            <button id="botao" type="onclick">Cadastrar</button>
-        </form><br><br>
 
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {{ messages }}
+                {% endif %}
+            {% endwith %}
+        <p id="mensagem"></p><br>
+        <button id="botao" type="submit">Cadastrar</button>
+        </form><br><br>
     </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

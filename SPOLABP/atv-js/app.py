@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, session, make_response
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -25,7 +25,6 @@ def registrarUsuario():
                 session["usuarios"] = [[username, email, password]]
             cadastro = session["usuarios"]
             return render_template('formulario.html', cadastro=cadastro)
-        return redirect(url_for('forumlario.html'))
     
     return render_template('formulario.html')
     
