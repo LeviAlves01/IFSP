@@ -10,10 +10,12 @@ function validar_formulario(event){
 
     if ((password=="" || email=="" || user=="") || (password=='' && email=='' && user=='')){ 
         mensagem.textContent = "Preencha todos os campos corretamente";
+        return false;
     } else if ((!email.includes("@gmail.com")) && (!email.includes("@hotmail.com")) && (!email.includes("@yahoo.com"))){
         mensagem.textContent = "Insira um e-mail válido";
+        return false;
     } else{
-        formulario.submit();
+        event.target.submit();
     }
 }
 
