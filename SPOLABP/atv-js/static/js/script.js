@@ -12,19 +12,9 @@ function validar_formulario(event){
         mensagem.textContent = "Preencha todos os campos corretamente";
     } else if ((!email.includes("@gmail.com")) && (!email.includes("@hotmail.com")) && (!email.includes("@yahoo.com"))){
         mensagem.textContent = "Insira um e-mail válido";
+    } else{
+        formulario.submit();
     }
-
-    localStorage.setItem('mensagem', mensagem)
-    //else{
-    //    mensagem.textContent = "Uusário {usuario} cadastrado com sucesso"
-    //}
 }
 
 formulario.addEventListener('submit', validar_formulario)
-
-document.addEventListener('DOMContentLoaded', () => {
-    const mensagemSalva = localStorage.getItem('mensagem');
-    if (mensagemSalva) {
-        document.getElementById('mensagem').textContent = mensagemSalva;
-    }
-})

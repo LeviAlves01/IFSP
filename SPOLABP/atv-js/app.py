@@ -24,7 +24,7 @@ def registrarUsuario():
             else:
                 session["usuarios"] = [[username, email, password]]
             cadastro = session["usuarios"]
-            return render_template('formulario.html', cadastro=cadastro)
+            return redirect(url_for('registrarUsuario'))    
     
     return render_template('formulario.html')
     
