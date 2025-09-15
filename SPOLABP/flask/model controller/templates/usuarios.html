@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <style>body{ font-family: sans-serif; }</style>
+</head>
+<body>
+    <h1>Usuários</h1>
+    <ul>
+        {% for usuario in lista_de_usuarios %}
+        <li>{{ usuario.nome }} - ({{ usuario.email }}) - ({{ usuario.senha }})</li>
+        {% else %}
+        <li>Nenhum usuário encontrado</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h3>Deseja excluir sua conta></h3>
+    <button type="submit" action="/usuarios/excluir">Remover</button>
+</body>
+</html>
