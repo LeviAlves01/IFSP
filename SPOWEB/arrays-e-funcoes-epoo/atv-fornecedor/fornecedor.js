@@ -1,14 +1,25 @@
 class Fornecedor{
-    constructor(nome, fone){
-        this.nome = nome;
-        this.fone = fone;
+    constructor(nome = "Sem nome", fone="(00)00000-0000"){
+        this._nome = nome;
+        this._fone = fone;
     }
 
-    setNome(novoNome){
-        novoNome = this.nome;
+    get nome(){
+        return this._nome;
     }
 
-    getNome(novoNome){
-        return novoNome;
+    set nome(novoNome){
+        this._nome = novoNome;
     }
+
+    get fone(){
+        return this._fone;
+    }
+
+    set fone(novoFone){
+        this._fone = novoFone;
+    }
+
 }
+
+export default Fornecedor;
