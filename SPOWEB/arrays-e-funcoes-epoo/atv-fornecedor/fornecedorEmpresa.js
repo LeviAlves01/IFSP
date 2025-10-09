@@ -1,26 +1,31 @@
 import Fornecedor from "./fornecedor.js";
 
 class FornecedorEmpresa extends Fornecedor{
+    #nome
+    #fone
+    #ie
+    #cnpj
+
     constructor(nome = "Sem nome", fone = "(00)00000-0000", ie, cnpj){
         super(nome, fone);
-        this._ie = ie;
-        this._cnpj = cnpj;
+        this.#ie = ie;
+        this.#cnpj = cnpj;
     }
 
     get ie(){
-        return this._ie;
+        return this.#ie;
     }
 
     set ie(novoIe){
-        this._ie = novoIe;
+        this.#ie = novoIe;
     }
 
     get cnpj(){
-        return this._cnpj;
+        return this.#cnpj;
     }
 
     set cnpj(novoCnpj){
-        this._cnpj = novoCnpj;
+        this.#cnpj = novoCnpj;
     }
 }
 
