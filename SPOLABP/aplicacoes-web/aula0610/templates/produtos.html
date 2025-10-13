@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/produtos.css') }}">
 </head>
 <body>
+    <div class="container">
     <h1>Nossos Produtos</h1>
 
     <ul>
         {% for produto in produtos %}
         <li>
-            <a href="{{ url_for('detalhe_produto', produto_id=produto.id) }}">
-                {{ produto.nome }}
-            </a> - R$ {{ "%.2f"|format(produto.preco) }}
+            <a href="{{ url_for('detalhe_produto', produto_id=produto['id']) }}">
+                {{ produto['nome'] }}
+            </a> - R$ {{ "%.2f"|format(produto['preco']) }}
         </li>
         {% endfor %}
     </ul>
+    <hr>
+    <p>Caso prefira, também possuímos uma página com nossos <a href="{{ url_for('listar_produtos_paginados') }}" class="marketing">produtos páginados</a> para melhor navegação.</p>
+    </div>
 </body>
 </html>
