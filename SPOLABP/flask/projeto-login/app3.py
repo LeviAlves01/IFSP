@@ -1,60 +1,32 @@
-from flask import Flask, session, redirect, url_for, request, render_template
+from flask import Flask, session, redirect, url_for, request, render_template, flash
 
 app = Flask(__name__)
 
 @app.route('/user/<username>')
-
 def profile(username):
     return render_template('profile.html', user=username)
 
-#Def login():
-#  usernames = []
-#    userpasswords = []
-#
- #   username = request.form['username']
-  #  userpassword = request.form['password']
-#
- #   usernames.append(username)
-  #  userpasswords.append(userpassword)
-#
- #   session['username'] = username
-#
- #   produtos = ["Maça", "Banana", "Laranja"]
-#
- #   logado = True
-#
- #   return render_template("login.html", produtos=produtos, logado=logado)
-
-@app.route('/logar', methods=['POST'])
-
+@app.route('/logar', methods=['GET', 'POST'])
 def validar_login():
-    usernames = ['levi123']
-    userpasswords = ['1234']
+    if request.method == 'POST':
+        usernames = ['levi123']
+        userpasswords = ['1234']
 
-    username = request.form['username']
-    userpassword = request.form['password']
+        username = request.form['username']
+        userpassword = request.form['password']
 
-    for user in usernames:
-        for user in userpasswords:
+        if username in usernames and userpassword in userpasswords:
+            return redirect(url_for('profile', logado=True, username=username))
+        else:
+            return redirect(url_for('validar_login', mensagem="Usuário ou senha inválidos"))
 
-            if (username == usernames) and (userpassword == userpasswords):
-                logado = True
-                return render_template("home.html", produtos=produtos, logado=logado)
-            else:
-                logado = False
-                return redirect(url_for('profile'))
-
+    return render_template('login.html')
 
 @app.route('/home')
-
 def home():
-
     produtos = ["Maça", "Banana", "Laranja"]
-
     logado = True
-
     return render_template("home.html", produtos=produtos, logado=logado)
 
 if __name__ == '__main__':
-
     app.run(debug=True)
