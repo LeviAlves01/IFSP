@@ -1,4 +1,4 @@
-from flask import Flask, session, redirect, url_for, request, render_template, flash
+from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
 
@@ -27,6 +27,10 @@ def home():
     produtos = ["Maça", "Banana", "Laranja"]
     logado = True
     return render_template("home.html", produtos=produtos, logado=logado)
+
+@app.route('/logout')
+def logout():
+    return redirect(url_for('validar_login', mensagem="Você saiu da sua conta", logado=False))
 
 if __name__ == '__main__':
     app.run(debug=True)
