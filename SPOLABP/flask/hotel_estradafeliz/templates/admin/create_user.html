@@ -1,13 +1,41 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Criar Usuário</h2>
-  <form method="post">
-    <input name="nome" placeholder="Nome completo" required>
-    <input name="email" placeholder="E-mail" required>
-    <input name="senha" placeholder="Senha" required>
-    <select name="perfil">{% for p in profiles %}<option value="{{ p['id'] }}">{{ p['nome_perfil'] }}</option>{% endfor %}</select>
-    <div class="actions"><button class="button" type="submit">Criar</button></div>
-  </form>
-{% endblock %}
 
+<section class="page-section centered">
+    <div class="container max-500">
+
+        <div class="section-title">
+            <h2>Criar Usuário</h2>
+            <p>Registre um novo usuário no sistema</p>
+        </div>
+
+        <div class="card-form">
+            <form method="post">
+
+                <label for="nome">Nome completo</label>
+                <input class="input-field" name="nome" placeholder="Nome completo" required>
+
+                <label for="email">E-mail</label>
+                <input class="input-field" name="email" placeholder="E-mail" required>
+
+                <label for="senha">Senha</label>
+                <input class="input-field" name="senha" type="password" placeholder="Senha" required>
+
+                <label for="perfil">Perfil</label>
+                <select class="input-field" name="perfil">
+                    {% for p in profiles %}
+                        <option value="{{ p['id'] }}">{{ p['nome_perfil'] }}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="actions right">
+                    <button class="btn" type="submit">Criar</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
