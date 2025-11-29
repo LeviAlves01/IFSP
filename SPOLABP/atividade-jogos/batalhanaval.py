@@ -33,7 +33,6 @@ for tentativa in range(1, tentativas + 1):
         print("Você já tentou essa posição!")
         continue
 
-    # Verifica se acertou o navio
     if linha == linha_navio and coluna == coluna_navio:
         print("Parabéns! Você acertou o navio!")
         tabuleiro[linha][coluna] = "N"
