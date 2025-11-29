@@ -1,0 +1,1 @@
+console.log('Hotel Estada Feliz - assets carregados')

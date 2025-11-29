@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Usuários</h2>
+  <a class="button" href="{{ url_for('admin.create_user') }}">Criar Usuário</a>
+  <table>
+    <tr><th>Nome</th><th>E-mail</th><th>Perfil</th></tr>
+    {% for u in users %}
+      <tr><td>{{ u['nome_completo'] }}</td><td>{{ u['email'] }}</td><td>{{ (profiles|selectattr('id','equalto',u['perfil_id'])|first)['nome_perfil'] }}</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Painel do Administrador</h2>
+  <div class="stats">
+    <div class="card small"><strong>{{ total_reservas }}</strong><div class="muted">Reservas</div></div>
+    <div class="card small"><strong>{{ total_quartos }}</strong><div class="muted">Quartos</div></div>
+    <div class="card small"><strong>R$ {{ receita }}</strong><div class="muted">Receita</div></div>
+  </div>
+  <h3>Gestão</h3>
+  <ul>
+    <li><a href="{{ url_for('admin.manage_users') }}">Gerenciar Usuários</a></li>
+    <li><a href="{{ url_for('admin.list_room_types') }}">Tipos de Quarto</a></li>
+  </ul>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Tipos de Quarto</h2>
+  <a class="button" href="{{ url_for('admin.create_room_type') }}">Novo Tipo</a>
+  <table>
+    <tr><th>Nome</th><th>Capacidade</th><th>Preço</th></tr>
+    {% for t in types %}
+      <tr><td>{{ t['nome_tipo'] }}</td><td>{{ t['capacidade_maxima'] }}</td><td>R$ {{ t['preco_diaria_base'] }}</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+

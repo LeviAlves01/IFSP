@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Criar Reserva</h2>
+  <form method="post">
+    <input name="nome_hospede" placeholder="Nome do hóspede (se novo)">
+    <input name="id_hospede" placeholder="ID do hóspede (se existente)">
+    <input name="doc" placeholder="Documento (CPF)">
+    <select name="id_tipo">{% for t in room_types %}<option value="{{ t['id_tipo'] }}">{{ t['nome_tipo'] }} - R$ {{ t['preco_diaria_base'] }}</option>{% endfor %}</select>
+    <input name="numero_quarto" placeholder="Número do quarto (opcional)">
+    <input name="data_checkin" type="date" required>
+    <input name="data_checkout" type="date" required>
+    <div class="actions"><button class="button">Criar Reserva</button></div>
+  </form>
+{% endblock %}
+

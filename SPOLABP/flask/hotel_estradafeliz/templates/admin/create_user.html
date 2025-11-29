@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Criar Usuário</h2>
+  <form method="post">
+    <input name="nome" placeholder="Nome completo" required>
+    <input name="email" placeholder="E-mail" required>
+    <input name="senha" placeholder="Senha" required>
+    <select name="perfil">{% for p in profiles %}<option value="{{ p['id'] }}">{{ p['nome_perfil'] }}</option>{% endfor %}</select>
+    <div class="actions"><button class="button" type="submit">Criar</button></div>
+  </form>
+{% endblock %}
+

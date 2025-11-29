@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Painel Pessoal</h2>
+  <h3>Reservas</h3>
+  <table>
+    <tr><th>ID</th><th>Quarto</th><th>Check-in</th><th>Check-out</th><th>Status</th></tr>
+    {% for r in reservas %}
+      <tr><td>{{ r['id_reserva'] }}</td><td>{{ r['numero_quarto'] or '—' }}</td><td>{{ r['data_checkin'] }}</td><td>{{ r['data_checkout'] }}</td><td>{{ r['status_reserva'] }}</td></tr>
+    {% endfor %}
+  </table>
+  <h3>Faturas</h3>
+  <table>
+    <tr><th>ID</th><th>Data</th><th>Total</th><th>Status</th></tr>
+    {% for f in faturas %}
+      <tr><td>{{ f['id_fatura'] }}</td><td>{{ f['data_emissao'] }}</td><td>R$ {{ (f['valor_diarias']+f['valor_servicos']) }}</td><td>{{ f['status_pagamento'] }}</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Terminal de Check-in/out</h2>
+  <a class="button" href="{{ url_for('recep.create_reservation') }}">Nova Reserva</a>
+  <h3>Reservas Atuais</h3>
+  <table>
+    <tr><th>ID</th><th>Hóspede</th><th>Quarto</th><th>Check-in</th><th>Check-out</th><th>Status</th><th>Ações</th></tr>
+    {% for r in reservations %}
+      <tr>
+        <td>{{ r['id_reserva'] }}</td>
+        <td>{{ (guests|selectattr('id_hospede','equalto',r['id_hospede_principal'])|first)['nome_completo'] }}</td>
+        <td>{{ r['numero_quarto'] or '—' }}</td>
+        <td>{{ r['data_checkin'] }}</td>
+        <td>{{ r['data_checkout'] }}</td>
+        <td>{{ r['status_reserva'] }}</td>
+        <td>
+          <a href="{{ url_for('recep.edit_reservation', res_id=r['id_reserva']) }}">Editar</a>
+          {% if r['status_reserva']!='Em Estadia' %} | <a href="{{ url_for('recep.checkin', res_id=r['id_reserva']) }}">Check-in</a>{% else %} | <a href="{{ url_for('recep.checkout', res_id=r['id_reserva']) }}">Check-out</a>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+

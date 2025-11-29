@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hotel Estada Feliz</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hotel Estada Feliz</h1>
+      <nav>
+        <a href="{{ url_for('auth.login') }}">Entrar</a>
+      </nav>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{% for m in messages %}{{ m }} {% endfor %}</div>
+      {% endif %}
+    {% endwith %}
+
+    <main class="card">{% block content %}{% endblock %}</main>
+    <footer>Prototipo - Hotel Estada Feliz</footer>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

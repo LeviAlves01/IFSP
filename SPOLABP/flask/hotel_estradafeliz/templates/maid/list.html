@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Lista de Quartos</h2>
+  <table>
+    <tr><th>Quarto</th><th>Tipo</th><th>Status</th><th>Localização</th><th>Ações</th></tr>
+    {% for q in rooms %}
+      <tr><td>{{ q['numero_quarto'] }}</td><td>{{ (room_types|selectattr('id_tipo','equalto',q['id_tipo'])|first)['nome_tipo'] }}</td><td>{{ q['status_limpeza'] }}</td><td>{{ q['localizacao'] }}</td><td><a href="{{ url_for('maid.update_clean_status', numero=q['numero_quarto']) }}">Atualizar</a></td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
