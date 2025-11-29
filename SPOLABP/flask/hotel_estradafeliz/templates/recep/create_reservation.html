@@ -1,16 +1,52 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Criar Reserva</h2>
-  <form method="post">
-    <input name="nome_hospede" placeholder="Nome do hóspede (se novo)">
-    <input name="id_hospede" placeholder="ID do hóspede (se existente)">
-    <input name="doc" placeholder="Documento (CPF)">
-    <select name="id_tipo">{% for t in room_types %}<option value="{{ t['id_tipo'] }}">{{ t['nome_tipo'] }} - R$ {{ t['preco_diaria_base'] }}</option>{% endfor %}</select>
-    <input name="numero_quarto" placeholder="Número do quarto (opcional)">
-    <input name="data_checkin" type="date" required>
-    <input name="data_checkout" type="date" required>
-    <div class="actions"><button class="button">Criar Reserva</button></div>
-  </form>
-{% endblock %}
 
+<section class="page-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Criar Reserva</h2>
+            <p>Preencha os dados do hóspede e da estadia</p>
+        </div>
+
+        <div class="card-form">
+            <form method="post">
+
+                <label>Nome do Hóspede (se novo)</label>
+                <input class="input-field" name="nome_hospede" placeholder="Nome do hóspede">
+
+                <label>ID do Hóspede (se existente)</label>
+                <input class="input-field" name="id_hospede" placeholder="ID do hóspede">
+
+                <label>Documento (CPF)</label>
+                <input class="input-field" name="doc" placeholder="Documento">
+
+                <label>Tipo de Quarto</label>
+                <select class="input-field" name="id_tipo">
+                    {% for t in room_types %}
+                        <option value="{{ t['id_tipo'] }}">
+                            {{ t['nome_tipo'] }} — R$ {{ t['preco_diaria_base'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <label>Número do Quarto (opcional)</label>
+                <input class="input-field" name="numero_quarto" placeholder="Ex.: 204">
+
+                <label>Data de Check-in</label>
+                <input class="input-field" name="data_checkin" type="date" required>
+
+                <label>Data de Check-out</label>
+                <input class="input-field" name="data_checkout" type="date" required>
+
+                <div class="actions">
+                    <button class="btn">Criar Reserva</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

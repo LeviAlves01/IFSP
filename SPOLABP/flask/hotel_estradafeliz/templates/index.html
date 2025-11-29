@@ -1,13 +1,168 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hotel Estada Feliz</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-    <h1>Hotel Estada Feliz</h1>
-    <script src="script.js"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Estada Feliz - Sua melhor experiência em hospedagem{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Bem-vindo ao Estada Feliz</h1>
+            <p>Descubra o conforto e a hospitalidade que tornam sua estadia inesquecível</p>
+            <a href="#quartos" class="btn">Ver Quartos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Quartos -->
+<section class="quartos" id="quartos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossos Quartos</h2>
+            <p>Conheça nossos ambientes cuidadosamente preparados para seu máximo conforto</p>
+        </div>
+
+        <div class="quartos-grid">
+
+            <!-- 1 -->
+            <div class="quarto-card">
+                <div class="quarto-img">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1170&q=80" alt="Quarto Standard">
+                </div>
+                <div class="quarto-info">
+                    <h3>Quarto Standard</h3>
+                    <p>Ideal para viagens de negócios ou passeios curtos.</p>
+                    <div class="quarto-features">
+                        <div class="quarto-feature"><i class="fas fa-user"></i> 2 pessoas</div>
+                        <div class="quarto-feature"><i class="fas fa-ruler-combined"></i> 25m²</div>
+                    </div>
+                    <div class="quarto-price">R$ 199/noite</div>
+                    <a href="#" class="btn">Reservar</a>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="quarto-card">
+                <div class="quarto-img">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1158&q=80" alt="Quarto Familiar">
+                </div>
+                <div class="quarto-info">
+                    <h3>Quarto Familiar</h3>
+                    <p>Perfeito para famílias com crianças.</p>
+                    <div class="quarto-features">
+                        <div class="quarto-feature"><i class="fas fa-user"></i> 4 pessoas</div>
+                        <div class="quarto-feature"><i class="fas fa-ruler-combined"></i> 40m²</div>
+                    </div>
+                    <div class="quarto-price">R$ 299/noite</div>
+                    <a href="#" class="btn">Reservar</a>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="quarto-card">
+                <div class="quarto-img">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1170&q=80" alt="Suíte Premium">
+                </div>
+                <div class="quarto-info">
+                    <h3>Suíte Premium</h3>
+                    <p>Luxo, vista panorâmica e serviços exclusivos.</p>
+                    <div class="quarto-features">
+                        <div class="quarto-feature"><i class="fas fa-user"></i> 2 pessoas</div>
+                        <div class="quarto-feature"><i class="fas fa-ruler-combined"></i> 55m²</div>
+                    </div>
+                    <div class="quarto-price">R$ 459/noite</div>
+                    <a href="#" class="btn">Reservar</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Serviços -->
+<section class="servicos" id="servicos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossos Serviços</h2>
+            <p>Desfrute de serviços exclusivos pensados para sua comodidade</p>
+        </div>
+
+        <div class="servicos-grid">
+
+            <div class="servico-card">
+                <div class="servico-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Restaurante</h3>
+                <p>Culinária regional e internacional.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon"><i class="fas fa-swimming-pool"></i></div>
+                <h3>Piscina</h3>
+                <p>Área de lazer para toda a família.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon"><i class="fas fa-dumbbell"></i></div>
+                <h3>Academia</h3>
+                <p>Equipamentos modernos para manter sua rotina.</p>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-icon"><i class="fas fa-spa"></i></div>
+                <h3>Spa</h3>
+                <p>Tratamentos relaxantes e revigorantes.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Unidades -->
+<section class="unidades" id="unidades">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossas Unidades</h2>
+            <p>Estamos presentes nas principais cidades do Brasil</p>
+        </div>
+
+        <div class="unidades-grid">
+
+            <div class="unidade-card">
+                <div class="unidade-img">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1170&q=80">
+                </div>
+                <div class="unidade-info">
+                    <h3>São Paulo</h3>
+                    <p>Coração da Avenida Paulista.</p>
+                    <div class="unidade-contato"><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1234</div>
+                </div>
+            </div>
+
+            <div class="unidade-card">
+                <div class="unidade-img">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1170&q=80">
+                </div>
+                <div class="unidade-info">
+                    <h3>Rio de Janeiro</h3>
+                    <p>Perto da praia de Copacabana.</p>
+                    <div class="unidade-contato"><i class="fas fa-map-marker-alt"></i> Av. Atlântica, 2345</div>
+                </div>
+            </div>
+
+            <div class="unidade-card">
+                <div class="unidade-img">
+                    <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop&w=1170&q=80">
+                </div>
+                <div class="unidade-info">
+                    <h3>Florianópolis</h3>
+                    <p>Beira-mar e centro histórico.</p>
+                    <div class="unidade-contato"><i class="fas fa-map-marker-alt"></i> Rua das Palmeiras, 456</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

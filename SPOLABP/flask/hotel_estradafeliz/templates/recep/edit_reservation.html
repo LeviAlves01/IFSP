@@ -1,11 +1,42 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Editar Reserva #{{ r['id_reserva'] }}</h2>
-  <form method="post">
-    <input name="numero_quarto" value="{{ r['numero_quarto'] or '' }}">
-    <select name="status_reserva"><option {% if r['status_reserva']=='Confirmada' %}selected{% endif %}>Confirmada</option><option {% if r['status_reserva']=='Pendente' %}selected{% endif %}>Pendente</option><option {% if r['status_reserva']=='Cancelada' %}selected{% endif %}>Cancelada</option><option {% if r['status_reserva']=='Em Estadia' %}selected{% endif %}>Em Estadia</option></select>
-    <div class="actions"><button class="button">Salvar</button></div>
-  </form>
-{% endblock %}
 
+<section class="page-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Editar Reserva #{{ r['id_reserva'] }}</h2>
+            <p>Atualize os dados da reserva selecionada</p>
+        </div>
+
+        <div class="card-form">
+            <form method="post">
+
+                <!-- Número do quarto -->
+                <label>Número do Quarto</label>
+                <input
+                    class="input-field"
+                    name="numero_quarto"
+                    value="{{ r['numero_quarto'] or '' }}"
+                >
+
+                <!-- Status da reserva -->
+                <label>Status da Reserva</label>
+                <select class="input-field" name="status_reserva">
+                    <option {% if r['status_reserva']=='Confirmada' %}selected{% endif %}>Confirmada</option>
+                    <option {% if r['status_reserva']=='Pendente' %}selected{% endif %}>Pendente</option>
+                    <option {% if r['status_reserva']=='Cancelada' %}selected{% endif %}>Cancelada</option>
+                    <option {% if r['status_reserva']=='Em Estadia' %}selected{% endif %}>Em Estadia</option>
+                </select>
+
+                <div class="actions">
+                    <button class="btn">Salvar Alterações</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

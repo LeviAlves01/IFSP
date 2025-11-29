@@ -1,16 +1,41 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Painel do Administrador</h2>
-  <div class="stats">
-    <div class="card small"><strong>{{ total_reservas }}</strong><div class="muted">Reservas</div></div>
-    <div class="card small"><strong>{{ total_quartos }}</strong><div class="muted">Quartos</div></div>
-    <div class="card small"><strong>R$ {{ receita }}</strong><div class="muted">Receita</div></div>
-  </div>
-  <h3>Gestão</h3>
-  <ul>
-    <li><a href="{{ url_for('admin.manage_users') }}">Gerenciar Usuários</a></li>
-    <li><a href="{{ url_for('admin.list_room_types') }}">Tipos de Quarto</a></li>
-  </ul>
-{% endblock %}
 
+<section class="page-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Painel do Administrador</h2>
+            <p>Resumo das operações e atalhos de gestão</p>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <strong>{{ total_reservas }}</strong>
+                <span>Reservas</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>{{ total_quartos }}</strong>
+                <span>Quartos</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>R$ {{ receita }}</strong>
+                <span>Receita</span>
+            </div>
+
+        </div>
+
+        <h3 style="margin-top: 40px;">Gestão</h3>
+
+        <ul class="list-links">
+            <li><a href="{{ url_for('admin.manage_users') }}">Gerenciar Usuários</a></li>
+            <li><a href="{{ url_for('admin.list_room_types') }}">Tipos de Quarto</a></li>
+        </ul>
+
+    </div>
+</section>
+
+{% endblock %}

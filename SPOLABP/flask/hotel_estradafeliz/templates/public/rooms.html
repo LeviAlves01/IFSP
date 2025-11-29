@@ -1,12 +1,36 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Quartos (visão pública)</h2>
-  <table>
-    <tr><th>Quarto</th><th>Tipo</th><th>Status</th></tr>
-    {% for q in rooms %}
-      <tr><td>{{ q['numero_quarto'] }}</td><td>{{ (room_types|selectattr('id_tipo','equalto',q['id_tipo'])|first)['nome_tipo'] }}</td><td>{{ q['status_limpeza'] }}</td></tr>
-    {% endfor %}
-  </table>
-{% endblock %}
 
+<section class="page-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Quartos Disponíveis</h2>
+            <p>Veja informações básicas sobre todos os quartos</p>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Quarto</th>
+                        <th>Tipo</th>
+                        <th>Status de Limpeza</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for q in rooms %}
+                    <tr>
+                        <td>{{ q['numero_quarto'] }}</td>
+                        <td>{{ (room_types|selectattr('id_tipo','equalto',q['id_tipo'])|first)['nome_tipo'] }}</td>
+                        <td>{{ q['status_limpeza'] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

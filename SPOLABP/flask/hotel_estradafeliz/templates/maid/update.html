@@ -1,10 +1,32 @@
-
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Atualizar Limpeza - Quarto {{ room['numero_quarto'] }}</h2>
-  <form method="post">
-    <select name="status"><option {% if room['status_limpeza']=='Sujo' %}selected{% endif %}>Sujo</option><option {% if room['status_limpeza']=='Limpando' %}selected{% endif %}>Limpando</option><option {% if room['status_limpeza']=='Limpo' %}selected{% endif %}>Limpo</option></select>
-    <div class="actions"><button class="button">Salvar</button></div>
-  </form>
-{% endblock %}
 
+<section class="page-section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Atualizar Limpeza</h2>
+            <p>Quarto {{ room['numero_quarto'] }}</p>
+        </div>
+
+        <div class="card-form">
+            <form method="post">
+
+                <label>Status de Limpeza</label>
+                <select class="input-field" name="status">
+                    <option {% if room['status_limpeza']=='Sujo' %}selected{% endif %}>Sujo</option>
+                    <option {% if room['status_limpeza']=='Limpando' %}selected{% endif %}>Limpando</option>
+                    <option {% if room['status_limpeza']=='Limpo' %}selected{% endif %}>Limpo</option>
+                </select>
+
+                <div class="actions">
+                    <button class="btn">Salvar</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
